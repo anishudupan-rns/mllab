@@ -11,9 +11,7 @@ clf = DecisionTreeClassifier(random_state=42).fit(xtr, ytr)
 yp = clf.predict(xte)
 
 print(f"Model Accuracy: {accuracy_score(yte, yp) * 100:.2f}%")
-# res = "Benign" if clf.predict(xte[0].reshape(1, -1)) == 1 else "Malignant"
 res = clf.predict(xte[0].reshape(1, -1))
-# print(f"Predicted Class for the new sample: {res}")
 print(f"Predicted Class for the new sample: {'Benign' if res==1 else 'Malignant'}")
 
 plt.figure(figsize=(12, 8))
