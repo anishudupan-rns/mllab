@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 iris=load_iris()
 reduced_data=PCA(n_components=2).fit_transform(iris.data)
 
-for i,color in enumerate(['r','g','b']):
+for i,color in enumerate("rgb"):
     plt.scatter(
         reduced_data[iris.target==i,0],
         reduced_data[iris.target==i,1],

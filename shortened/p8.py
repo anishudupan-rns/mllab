@@ -10,11 +10,11 @@ xtr, xte, ytr, yte = train_test_split(data.data, data.target, test_size=0.2, ran
 clf = DecisionTreeClassifier(random_state=42).fit(xtr, ytr)
 yp = clf.predict(xte)
 
-print(f"Model Accuracy: {accuracy_score(yte, yp) * 100:.2f}%")
+print(f"Model Accuracy: {accuracy_score(yte, yp)}%")
 res = clf.predict(xte[0].reshape(1, -1))
 print(f"Predicted Class for the new sample: {'Benign' if res==1 else 'Malignant'}")
 
-plt.figure(figsize=(12, 8))
+plt.figure(figsize=(12, 8),dpi=200)
 plot_tree(clf, filled=True, feature_names=data.feature_names, class_names=data.target_names)
 plt.title("Decision Tree - Breast Cancer Dataset")
 plt.show()
